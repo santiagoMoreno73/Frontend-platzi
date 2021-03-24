@@ -1,0 +1,563 @@
+@charset "UTF-8";
+/*INDEX*/
+body {
+  margin: 0px;
+  background: linear-gradient(#21C08B, #AB88FF);
+  font-family: "Mulish", sans-serif;
+}
+
+.header {
+  background-color: rgba(19, 17, 17, 0.556);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  /*deja un espacio en medio de dos objetos horizontalmente*/
+  align-items: center;
+  /*alinea items de manera horizontal*/
+}
+
+.header__img {
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.header__menu {
+  margin-left: 60px;
+}
+
+.header__menu ul {
+  display: none;
+  /*Oculta la lista*/
+  list-style: none;
+  /*Elimina los estilos por defecto de
+  la lista*/
+  padding: 0px;
+  position: absolute;
+  width: 100px;
+  text-align: right;
+  margin: 0px;
+}
+
+.header__menu:hover ul, ul:hover {
+  display: block;
+}
+
+.header__menu li {
+  margin: 10px 0px;
+}
+
+.header__menu li a {
+  color: white;
+  text-decoration: none;
+}
+
+.header__menu li a:hover {
+  text-decoration: underline;
+}
+
+.header__menu--profile {
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  /*Cambia el cursor*/
+}
+
+.header__menu--profile img {
+  margin-right: 8px;
+  width: 40px 40px;
+}
+
+.header__menu--profile p {
+  margin: 0px;
+  color: white;
+}
+
+.input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: solid 2px white;
+  border-radius: 25px;
+  color: white;
+  font-family: "Mulish", sans-serif;
+  font-size: 16px;
+  height: 35px;
+  padding: 0px 10px;
+  width: 70%;
+  /*medida reliatva va a tener un 70% dependiendo
+  del ancho de la pantalla*/
+  outline: none;
+  /*elimina el outline, quita el marcador de cuadro que
+  aparece al dar click*/
+  margin: 10px;
+  /*separar los input*/
+}
+
+::placeholder {
+  /*pseudo elemento*/
+  color: white;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 300px;
+  border-radius: 0px 0px 40px 40px;
+}
+
+.main__title {
+  color: white;
+  font-size: 25px;
+}
+
+.categories__title {
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  /*Se acomoda dependiendo del contenedor padre*/
+  padding-left: 30px;
+  /*para que no queden pegadas a los lados de la web*/
+  width: 100%;
+}
+
+.carousel {
+  width: 100%;
+  /*ocupa el 100% de la pantalla*/
+  overflow: scroll;
+  /*Genera scroll*/
+  margin: 25px;
+  /*position: relative;/*todos los elementos se pocisionan
+  en realcion al elemento padre*/
+  padding-left: 30px;
+}
+
+.carousel__container {
+  white-space: nowrap;
+  /*Esta propiedad manda todos los elementos 
+  al fondo, sin esta propiedad pocisiona todo uno abajo del otro*/
+  padding-bottom: 10px;
+  font-size: 0;
+  margin: 70px 0px;
+  transition: 450ms transform, 450ms -webkit-transform;
+}
+
+.carousel-item {
+  background-color: #51a451;
+  width: 200px;
+  height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-right: 10px;
+  display: inline-block;
+  cursor: pointer;
+  transition: 450ms all;
+  /*450 milisegundos*/
+  transform-origin: center left;
+  /*Agrega suavidad a la animacion y encaja la animacion*/
+  position: relative;
+  /*para que sea relativo a sus elementos hijos*/
+}
+
+.carousel-item:hover ~ .carousel-item {
+  transform: translate3d(100px, 0, 0);
+  /*los elementos se desplazan a la derecha*/
+}
+
+.carousel__container:hover .carousel-item {
+  /*Oscurece los demas elementos del contenedor*/
+  opacity: 0.3;
+}
+
+.carousel__container:hover .carousel-item:hover {
+  /*Aumento de tamaño*/
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+.carousel-item__img {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  /*Acomoda la imagen a su contenedor siempre y cuando le hallamos definido
+  un wdith y un height*/
+}
+
+.carousel-item__details {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+  /*con linear-gradient le agregamos un desvanecido desde arriba hasta abajo*/
+  font-size: 14px;
+  /*tamaño del texto*/
+  /**opacity: 80%;/*Opacidad de los iconos*/
+  transition: 450ms opacity;
+  padding: 10px;
+  /*para que los textos no queden ajustados*/
+  position: absolute;
+  /*como el contenedor padre es realitvo aqui es absoluto*/
+  top: 65px;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  color: white;
+  text-align: center;
+}
+
+.carousel-item__details p {
+  padding-top: 50px;
+}
+
+.footer__index {
+  display: flex;
+  align-items: center;
+  background-color: rgba(19, 17, 17, 0.556);
+}
+
+.footer__index a {
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer__index a:hover {
+  text-decoration: underline;
+}
+
+/*CAMBIA EL SCROLL TAN CULO DEL NAVEGADOR*/
+/*::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px;   
+    background:rgba(255,255,255,.4);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  }
+  ::-webkit-scrollbar:hover:active {
+    background: #999;
+  }*/
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(190, 189, 189, 0.219);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.281);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.699);
+}
+
+/*CAMBIA EL SCROLL TAN CULO DEL NAVEGADOR*/
+/*INDEX*/
+/*LOGIN*/
+.login {
+  background: linear-gradient(#21C08B, #AB88FF);
+  /*Agrega el degrade*/
+  display: flex;
+  /*para alinear componentes*/
+  align-items: center;
+  justify-content: center;
+  /*alinear de forma horizontal*/
+  flex-direction: column;
+  /*Alinea horizontalmente los elementos*/
+  padding: 40px 30px;
+  min-height: calc(100vh - 200px);
+  /*Por mas alta que sea la pantalla siempre se mantiene este valor
+  vh medida relativa que se basa en la pantalla del usuario*/
+}
+
+.login__container {
+  background-color: rgba(255, 255, 255, 0.1);
+  /*fondo del contenedor*/
+  border-radius: 40px;
+  /*borde del contenedor*/
+  border: solid 2px white;
+  /*borde del contenedor*/
+  color: white;
+  /*Color de texto*/
+  padding: 60px;
+  min-height: 700px;
+  /*se adapta al tamaño de la pantalla del usuario*/
+  width: 300px;
+  /*Altura del contenedor*/
+  display: flex;
+  /*Para que sean movibles*/
+  justify-content: space-around;
+  /*Crea espacio igual en todos los elementos
+  que existen en el contenedor*/
+  flex-direction: column;
+  /*alinea todo en columna*/
+}
+
+.login__container--form {
+  display: flex;
+  flex-direction: column;
+  /*para que todos los elementos se acomoden horizontalmente*/
+}
+
+.login__container--form label {
+  font-size: 14px;
+  /*tamamño de la letra*/
+}
+
+.login__container--remember {
+  color: white;
+  display: flex;
+  /*para manejar elementos*/
+  justify-content: space-between;
+  /*Espacio entre los elementos*/
+  margin-top: 10px;
+}
+
+.login__container--remember a {
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.login__container--remember a:hover {
+  text-decoration: underline;
+}
+
+.login__container--social-media > div {
+  display: flex;
+  /*Para que los objetos se dejen alinear*/
+  align-items: center;
+  /*alinear verticalmente*/
+  font-size: 14px;
+  /*tamaño de la fuente100*/
+  margin: 10px;
+  /*margin de 10px en todas las direcciones*/
+}
+
+.login__container--social-media > div > img {
+  width: 25px;
+  margin: 10px;
+}
+
+.login__container--register {
+  font-size: 14px;
+  text-align: center;
+}
+
+.login__container--register a {
+  font-size: 16px;
+  /*tamaño de letra*/
+  color: white;
+  font-weight: bold;
+  /*fuente*/
+  text-decoration: none;
+  /*elimina la linea por defecto de a*/
+}
+
+.login__container--register a:hover {
+  text-decoration: underline;
+  /*elimina la linea de defecto a*/
+}
+
+.login__input {
+  font-family: "Mulish", sans-serif;
+  outline: none;
+  /*elimina el recuadro al darle click*/
+  margin: 10px;
+  /*agrega 10 px de margen a los inputs*/
+  background-color: transparent;
+  /*transparente*/
+  border-left: 0px;
+  /*Elimina el borde derecho*/
+  border-top: 0px;
+  /*Elimina el borde superior*/
+  border-right: 0px;
+  /*Elimina el borde izquierdo*/
+  border-bottom: 2px solid white;
+  /*modifica el borde de abajo*/
+  font-size: 16px;
+  padding: 10px;
+}
+
+::placeholder {
+  /*pseudo elemento*/
+  color: white;
+}
+
+.button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 25px;
+  /*letter-spacing: 1px; espacea entre letras*/
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  /*font-weight: bold;/*para que se vea oscuro*/
+  font-family: "Mulish", sans-serif;
+  outline: none;
+  height: 50px;
+  margin: 25px;
+  /*Separa el boton*/
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  background-color: rgba(19, 17, 17, 0.556);
+}
+
+.footer a {
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/*LOGIN*/
+/*REGISTRO*/
+.registro {
+  background: linear-gradient(#21C08B, #AB88FF);
+  /*Agrega el degrade*/
+  display: flex;
+  /*para alinear componentes*/
+  align-items: center;
+  justify-content: center;
+  /*alinear de forma horizontal*/
+  flex-direction: column;
+  /*Alinea horizontalmente los elementos*/
+  padding: 0px 30px;
+  min-height: calc(100vh - 200px);
+  /*Por mas alta que sea la pantalla siempre se mantiene este valor
+  vh medida relativa que se basa en la pantalla del usuario*/
+}
+
+.registro__container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 40px;
+  border: solid 2px white;
+  padding: 60px;
+  width: 300px;
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+}
+
+.registro__input {
+  font-family: "Mulish", sans-serif;
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 2px white;
+  margin: 20px;
+  font-size: 16px;
+  outline: none;
+  padding: 10px;
+}
+
+.registro__container--form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.registro__container a {
+  color: white;
+  text-decoration: none;
+  margin-top: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  /*negrita*/
+}
+
+.registro__container a:hover {
+  text-decoration: underline;
+}
+
+/*REGISTRO*/
+.container {
+  padding: 40px 30px;
+  min-height: calc(100vh - 200px);
+  justify-content: center;
+}
+
+.container__texto {
+  display: flex;
+  /*para que se deje manejar*/
+  align-items: center;
+  /*centrar*/
+  flex-direction: column;
+  /*para que los objetos se comporten en columna*/
+  transform: translateY(80%);
+  /*contrar verticalmente*/
+  color: white;
+  /*color del texto que tenga dentro*/
+}
+
+.container__texto h1 {
+  font-size: 100px;
+  margin: 0px;
+}
+
+.container__texto h1:hover {
+  transform-origin: center;
+  /*punto de origen de la transformacion*/
+  transition: 450ms transform, 450ms -webkit-transform;
+  transform: scale(2, 2);
+  /*aumenta de tamaño un objeto*/
+  cursor: pointer;
+}
+
+.container__texto h2 {
+  padding-top: 15px;
+}
+
+/*QUERY MOBILE*/
+@media only screen and (max-width: 600px) {
+  .login__container {
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    width: 100%;
+  }
+
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .registro__container {
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    width: 100%;
+  }
+
+  .carousel__container {
+    border: none;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+  }
+}
+/*QUERY MOBILE*/
+
+/*# sourceMappingURL=style.css.map */
